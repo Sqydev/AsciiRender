@@ -72,6 +72,12 @@ int main(int argc, char *argv[]) {
 	if (!memcmp(MagicCheck, (unsigned char[]){0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A}, 8)) {
 		PNG_Convert_To_Ascii(InputPath, OutputPath);
 	}
+	else if (!memcmp(MagicCheck, (unsigned char[]){0xFF, 0xD8, 0xFF, 0xE0}, 4)) {
+		printf("JPG");	
+	}
+	else {
+		printf("Unsuported format");
+	}
 
 	fclose(file);
 	return 0;
